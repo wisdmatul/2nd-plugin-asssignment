@@ -30,7 +30,10 @@ class Email_Admin_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-
+		if( !wp_next_scheduled( 'send_daily_post_summary' ) )
+    {
+        wp_schedule_event(time(), 'daily', 'send_daily_post_summary');
+    }
 	}
 
 }

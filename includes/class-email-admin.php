@@ -156,7 +156,7 @@ class Email_Admin {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
+		$this->loader->add_action('send_daily_post_summary',$plugin_admin, 'send_emaildata');
 	}
 
 	/**
@@ -214,5 +214,7 @@ class Email_Admin {
 	public function get_version() {
 		return $this->version;
 	}
+
+
 
 }
